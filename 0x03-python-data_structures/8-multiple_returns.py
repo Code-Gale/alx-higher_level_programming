@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def multiple_returns(sentence):
-    lens = len(sentenct)
-    if lens:
-        return (lens, sentence[0])
-    return (lens, None)
+    length = len(sentence)
+    if length:
+        return (length, sentence[0])
+    return (length, None)
