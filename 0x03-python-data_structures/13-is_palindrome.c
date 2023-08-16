@@ -1,64 +1,83 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 
-int check_palindrome(listint_t **head, int node);
 /**
- * is_palindrome - Check if a singly linked list is a palindrome
- * @head: double pointer to the beginning of the list
- *
- * Return: 1 (if a palindrome), 0 (if not)
- */
+  * is_palindrome - Checks if a singly linked list is a palindrome
+  * @head: The head of the singly linked list
+  *
+  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *new_list = NULL, *temp = NULL;
-	int node = 0, status;
+    listint_t *start = NULL, *end = NULL;
+    unsigned int i = 0, len = 0, len_cyc = 0, len_list = 0;
 
-	temp = *head;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		node++;
-	}
+    if (head == NULL)
+        return (0);
 
-	if (node == 1 || node == 0)
-	{
-		free_listint(new_list);
-		return (1);
-	}
+    if (*head == NULL)
+        return (1);
+    
+    start = *head;
+    len = listint_len(start);
+    len_cyc = len * 2;
+    len_list = len_cyc - 2;
+    end = *head;
 
-	status = check_palindrome(head, node);
+    for (; i < len_cyc; i = i + 2)
+    {
+        if (start[i].n != end[len_list].n)
+            return (0);
 
-	if (status)
-		return (1);
-	return (0);
+        len_list = len_list - 2;
+    }
+
+    return (1);
 }
 
 /**
- * check_palindrome - Compare data of two list
- * @head: first list
- * @node: list length
- *
- * Return: 1 (if equal), 0 (if not)
- */
-int check_palindrome(listint_t **head, int node)
+  * get_nodeint_at_index - Gets a node from a linked list
+  * @head: The head of the linked list
+  * @index: The index to find in the linked list
+  *
+  * Return: The specific node of the linked list
+  */
+listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-	listint_t *temp = NULL;
-	int status = 1, i = 0, j = 0, num_arr[node];
+	listint_t *current = head;
+	unsigned int iter_times = 0;
 
-	temp = *head;
-	while (temp != NULL)
+	if (head)
 	{
-		num_arr[i++] = temp->n;
-		temp = temp->next;
-	}
-
-	while (j < (node / 2))
-	{
-		if (num_arr[j++] != num_arr[--i])
+		while (current != NULL)
 		{
-			status = 0;
-			break;
+			if (iter_times == index)
+				return (current);
+
+			current = current->next;
+			++iter_times;
 		}
 	}
 
-	return (status);
+	return (NULL);
+}
+
+/**
+  * slistint_len - Counts the number of elements in a linked list
+  * @h: The linked list to count
+  *
+  * Return: Number of elements in the linked list
+  */
+size_t listint_len(const listint_t *h)
+{
+	int lenght = 0;
+
+	while (h != NULL)
+	{
+		++lenght;
+		h = h->next;
+	}
+
+	return (lenght);
 }
