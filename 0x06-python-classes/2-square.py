@@ -4,7 +4,7 @@
 
 class Square:
     """introducing instatiation"""
-    def __init(self, size=0):
+    def __init__(self, size=0):
         if type(size) is int:
             if size < 0:
                 raise ValueError("size must be >= 0")
