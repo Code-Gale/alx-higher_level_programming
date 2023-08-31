@@ -3,17 +3,8 @@
 
 
 class Square:
-    """Represents a square
-    Attributes:
-        __size (int): size of a side of the square
-    """
+    """Represents a square"""
     def __init__(self, size=0):
-        """initializes the square
-        Args:
-            size (int): size of a side of the square
-        Returns:
-            None
-        """
         self.size = size
 
     def area(self):
@@ -21,7 +12,7 @@ class Square:
         Returns:
             The area of the square
         """
-        return (self.__size) ** 2
+        return int(self.__size) * int(self.__size)
 
     @property
     def size(self):
