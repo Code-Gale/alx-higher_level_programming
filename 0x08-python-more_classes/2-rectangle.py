@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 A rectangle class containing area
-and perimetwe
+and perimeter
 """
 
 
@@ -19,7 +19,7 @@ class Rectangle:
     def width(self, value):
         if type(value) is not int:
             raise TypeError("width must be an integer")
-        elif width < 0:
+        elif value < 0:
             raise ValueError("width must be >= 0")
         self.width = value
 
@@ -42,5 +42,4 @@ class Rectangle:
     def perimeter(self):
         if self.__width == 0 or self.__height == 0:
             return 0
-        else:
-            return (self.__width * 2) + (self.__height * 2)
+        return (self.__width * 2) + (self.__height * 2)
