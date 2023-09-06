@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """
 This function adds 2 integers and returns
-the sum 
+the sum
 """
+
 
 def add_integer(a, b=98):
     """
