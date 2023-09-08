@@ -50,7 +50,7 @@ def matrix_mul(m_a, m_b):
                 raise TypeError("m_b should contain only integers or floats")
 
     # Check if the multiplication is posible
-    if num_colum1 ia not num_row2:
+    if num_colum1 is not num_row2:
         raise ValueError("m_a and m_b can't be multiplied")
 
     mul_matrix = []
@@ -62,7 +62,7 @@ def matrix_mul(m_a, m_b):
             result = 0
             k = 0
             for column_1 in row_1:
-                result += column_1 * m_b[k][l]
+                result += column_1 * m_b[k][lop]
                 k += 1
             lop_row.append(result)
             lop += 1
