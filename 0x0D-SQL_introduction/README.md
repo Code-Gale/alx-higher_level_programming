@@ -1,0 +1,1 @@
+This dir contains all task for sql introduction in alx
