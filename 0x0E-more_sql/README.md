@@ -1,1 +1,0 @@
-This dir contains all tasks for more sql queries
