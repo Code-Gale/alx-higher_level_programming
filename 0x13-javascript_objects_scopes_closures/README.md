@@ -1,0 +1,1 @@
+These are tasks for javascript objects scopes closure
